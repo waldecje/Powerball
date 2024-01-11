@@ -4,7 +4,7 @@ This program simulates the powerball game.  It was originally written by ChatGPT
 At the time, the author had never coded in or even examined Python script.  The question was: could a person who had never used or even substatively seen Python be able to code in it?
 The author's experience was in Perl and shell scripting and 20 years in disuse.
 
-ChatGPT mad a very basic, single draw simulation.
+ChatGPT created a very basic, single draw simulation.
 
 Subsequently, the following features were added by the author as I "learned" Python
 - Drawing continuously for a prompted amount of time
