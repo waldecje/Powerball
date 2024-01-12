@@ -137,26 +137,37 @@ def simulate_lottery(draw_time_seconds, user_numbers):
     #elapsed_time = finish_time-start_time
     #print("Total elapsed runtime",datetime.datetime.fromtimestamp(elapsed_time).strftime('%H:%M:%S'))
  
-# Get the user's picks
+# Get the user's play preference
 if __name__ == "__main__":
-    user_numbers_input = input("Enter your Powerball numbers (1 - 69), then the Powerball (1 - 26): ")
-    user_numbers = [int(num) for num in user_numbers_input.split()]
+    play_preference = input("Do you want to play your own numbers or do Quickpicks?  Enter \"o\" or \"q\": ")
+    if play_preference == "o":
+
+        # Get user's numbers
+        user_numbers_input = input("Enter your Powerball numbers (1 - 69), then the Powerball (1 - 26): ")
+        user_numbers = [int(num) for num in user_numbers_input.split()]
 
 # Validating the numbers entered by the user
-    pb_iterator = 0
-    if len(user_numbers) != 6:                         # If more or less than 6 numbers given
-        sys.exit("Invalid input, you need exactly six numbers to play.  Goodbye!")
-    elif (user_numbers[5] > 26 or user_numbers[5] <= 0):        # If the powerball is out of the range used by the game
-        sys.exit("Your powerball selecion ts out of range.  Read the directions next time!")
-    elif len(user_numbers[0:4]) != len(set(user_numbers[0:4])):           # If duplicate numbers were entered for any of the 5 white balls, which is not possible on a PB ticket
-        sys.exit("You have entered duplicate numbers in your five white picks.  This is not possible.")
-    else:                                               # Last check - now iterate through the list and check to make sure all 5 picks are between 1 and 69
-        while pb_iterator < 5:
-            if ((user_numbers[pb_iterator] < 1) or (user_numbers[pb_iterator] > 69)):
-                  sys.exit("One or more of your five numbers is out of range.  Read the directions next time!")     # Die program, die.
-            pb_iterator += 1
+        pb_iterator = 0
+        if len(user_numbers) != 6:                         # If more or less than 6 numbers given
+            sys.exit("Invalid input, you need exactly six numbers to play.  Goodbye!")
+        elif (user_numbers[5] > 26 or user_numbers[5] <= 0):        # If the powerball is out of the range used by the game
+            sys.exit("Your powerball selecion ts out of range.  Read the directions next time!")
+        elif len(user_numbers[0:4]) != len(set(user_numbers[0:4])):           # If duplicate numbers were entered for any of the 5 white balls, which is not possible on a PB ticket
+            sys.exit("You have entered duplicate numbers in your five white picks.  This is not possible.")
+        else:                                               # Last check - now iterate through the list and check to make sure all 5 picks are between 1 and 69
+            while pb_iterator < 5:
+                 if ((user_numbers[pb_iterator] < 1) or (user_numbers[pb_iterator] > 69)):
+                      sys.exit("One or more of your five numbers is out of range.  Read the directions next time!")     # Die program, die.
+                 pb_iterator += 1
 
 # Run the drawing
-    draw_time_seconds = int(input("Enter the length of time to simulate drawings in seconds. Enter 0 to run indefinitely until a jackpot win: "))
-    simulate_lottery(draw_time_seconds, (user_numbers[:5], user_numbers[5]))
+        draw_time_seconds = int(input("Enter the length of time to simulate drawings in seconds. Enter 0 to run indefinitely until a jackpot win: "))
+        simulate_lottery(draw_time_seconds, (user_numbers[:5], user_numbers[5]))
+    
+    elif play_preference == "q":
+        print("Quick picks it is!")
+    
 
+
+    else:
+        sys.exit("Invalid entry.")
