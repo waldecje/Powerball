@@ -172,7 +172,20 @@ if __name__ == "__main__":
             except ValueError:
                 print("Invalid integer!  Goodbye!") 
         if 1 <= num_qp <= 100:
-            print("Here we go, yo.") 
+            print("Generating ", num_qp, " quick picks.") 
+            qp_counter = num_qp
+            user_numbers = {}
+            while qp_counter > 0:
+                qp_counter -= 1
+                user_numbers[qp_counter] = generate_powerball_numbers()
+                print(user_numbers[qp_counter])
+
+
+
+
+
+
+
         else:
             sys.exit("Your selection is out of range.  Goodbye!")
     else:
