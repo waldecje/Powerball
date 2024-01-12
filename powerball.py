@@ -165,9 +165,15 @@ if __name__ == "__main__":
         simulate_lottery(draw_time_seconds, (user_numbers[:5], user_numbers[5]))
     
     elif play_preference == "q":
-        print("Quick picks it is!")
-    
-
-
+        num_qp = None
+        while num_qp is None:
+            try:
+                num_qp = int(input("How many Quickpicks do you want to buy?  Enter 1-100: "))
+            except ValueError:
+                print("Invalid integer!  Goodbye!") 
+        if 1 <= num_qp <= 100:
+            print("Here we go, yo.") 
+        else:
+            sys.exit("Your selection is out of range.  Goodbye!")
     else:
         sys.exit("Invalid entry.")
