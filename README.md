@@ -14,3 +14,5 @@ Subsequently, the following features were added by the author as I "learned" Pyt
 - Future plans for random "quick pick" selection of numbers combined with the option for multiple simultaneous QP's per drawing (simulatiung how a consumer would play the 3x weekly game using QP)
 
 The program is now being used as a base for learning git, Jenkins, and other more modern developer/devops tools, along with improving Python skills.
+
+Also adding connectivity to my Jenkins server.  This commit will test the webhook.
